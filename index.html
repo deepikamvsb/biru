@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { margin-bottom: 20px; }
+        .success-message { display: none; }
+    </style>
+</head>
+<body>
+    <div id="registration-form">
+        <h1>Registration Form</h1>
+        <form id="form">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required><br><br>
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="contact">Contact Number:</label>
+            <input type="tel" id="contact" name="contact" required><br><br>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea><br><br>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div id="success-message" class="success-message">
+        <h1>Registration Success</h1>
+        <p>Your registration was successful!</p>
+        <p><strong>First Name:</strong> <span id="success-firstname"></span></p>
+        <p><strong>Last Name:</strong> <span id="success-lastname"></span></p>
+        <p><strong>Email:</strong> <span id="success-email"></span></p>
+        <p><strong>Contact Number:</strong> <span id="success-contact"></span></p>
+        <p><strong>Address:</strong> <span id="success-address"></span></p>
+        <p><strong>City:</strong> <span id="success-city"></span></p>
+    </div>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the default form submission
+
+            // Collect form data
+            const firstname = document.getElementById('firstname').value;
+            const lastname = document.getElementById('lastname').value;
+            const email = document.getElementById('email').value;
+            const contact = document.getElementById('contact').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+
+            // Hide the form and show the success message
+            document.getElementById('registration-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+
+            // Display the submitted data
+            document.getElementById('success-firstname').textContent = firstname;
+            document.getElementById('success-lastname').textContent = lastname;
+            document.getElementById('success-email').textContent = email;
+            document.getElementById('success-contact').textContent = contact;
+            document.getElementById('success-address').textContent = address;
+            document.getElementById('success-city').textContent = city;
+        });
+    </script>
+</body>
+</html>
